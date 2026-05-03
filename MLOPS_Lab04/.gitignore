@@ -3,3 +3,5 @@ models/
 venv/
 __pycache__/
 *.pkl
+mlruns/
+mlflow.db
