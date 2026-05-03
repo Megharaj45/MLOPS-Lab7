@@ -1,0 +1,12 @@
+{
+  "name": "My Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {},
+  "extensions": [
+    "ms-python.python"
+  ],
+  "postCreateCommand": "pip install --upgrade pip",
+  "remoteUser": "root"
+}
