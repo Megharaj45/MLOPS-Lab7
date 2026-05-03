@@ -1,28 +1,6 @@
-stages:
-  ingest:
-    cmd: python -m src.ingest
+  experiment:
+    cmd: python -m src.experiment
     deps:
-      - src/ingest.py
-      - src/config.py
-      - data/raw/ratings.csv
-    outs:
-      - data/processed/ratings_clean.csv
-
-  features:
-    cmd: python -m src.prepare_features
-    deps:
-      - src/features.py
-      - src/prepare_features.py
-      - data/processed/ratings_clean.csv
-    outs:
-      - models/rating_features.pkl
-
-  train:
-    cmd: python -m src.train_main
-    deps:
-      - src/train.py
-      - src/train_main.py
+      - src/experiment.py
       - models/rating_features.pkl
       - data/processed/ratings_clean.csv
-    outs:
-      - models/model.pkl
