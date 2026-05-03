@@ -44,3 +44,27 @@ stages:
       hash: md5
       md5: 1e5a2d3c2e8e0114c1b75e9415710e43
       size: 479371
+  train:
+    cmd: python -m src.train_main
+    deps:
+    - path: data/processed/ratings_clean.csv
+      hash: md5
+      md5: 04517ca5cf2dbfb7b8da3f0d710eb96a
+      size: 73431
+    - path: models/rating_features.pkl
+      hash: md5
+      md5: 1e5a2d3c2e8e0114c1b75e9415710e43
+      size: 479371
+    - path: src/train.py
+      hash: md5
+      md5: 4899920acdc84d4635fd5b84b76da927
+      size: 982
+    - path: src/train_main.py
+      hash: md5
+      md5: 6339a233c56e0f4ac9345eec3d3b9b71
+      size: 1245
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: fb5cfbd2cbf1a66b083f3c8d71e398ec
+      size: 544121

@@ -7,9 +7,6 @@ stages:
       - data/raw/ratings.csv
     outs:
       - data/processed/ratings_clean.csv
-    metrics:
-      - evaluations/validation_report.json:
-          cache: false
 
   features:
     cmd: python -m src.prepare_features
@@ -19,3 +16,13 @@ stages:
       - data/processed/ratings_clean.csv
     outs:
       - models/rating_features.pkl
+
+  train:
+    cmd: python -m src.train_main
+    deps:
+      - src/train.py
+      - src/train_main.py
+      - models/rating_features.pkl
+      - data/processed/ratings_clean.csv
+    outs:
+      - models/model.pkl
